@@ -1,3 +1,9 @@
+파이썬 실습
+https://easy-behavior-a27.notion.site/49afee7bb9414ca7a92695cdd06615b2
+
+영상처리
+https://easy-behavior-a27.notion.site/4d238dac930240abbb085cb6fafe2505
+
 1. numpy, 최대 공약수, 표면적과 궤적, 직각삼각형, 홀수와 짝수, 60세까지, 1인 비트 찾기,
 자리수의 합, BCC 구하기, [Turtle] 관람차 그리기
 
