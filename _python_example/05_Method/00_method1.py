@@ -3,8 +3,8 @@ class ExampleClass:
     def __init__(self):
         self.programs = [
             "프로그램 1: [중복이 없는 리스트]",
-            "프로그램 2: [최대값의 리스트, 이차원 벡터의 최대값을 모아..]",
-            "프로그램 3: [최대값의 리스트2, 근데 열 끼리의 비교]",
+            "프로그램 2: [임의 개수의 인수]",
+            "프로그램 3: [가변 길이 키워드]",
             "프로그램 4: [문장 전체에서 단어와 그 단어가 출력되는 빈도 수 출력 (빈도수 내림차순)]",
             "프로그램 5: [디저트에 대한 영양 성분 데이터를 표로 만들기]",
             "프로그램 6: [dic 데이터 함축]",
@@ -22,6 +22,27 @@ class ExampleClass:
             if value not in temp:
                 temp.append(value)
         print(temp)
+    def program_2(self):
+        print("***[프로그램 2]***")
+        print("평균과 합을 반환하는...")
+                
+        # 가변길이 인수 키워드 def sumNave(*a): 
+        value_list = [int(x) for x in input("콤마로 구분된 수를 입력하세요. :").split(',')]        
+        
+        mean = sum(value_list) / len(value_list)
+        total = sum(value_list)
+                                    
+        temp = [(e-mean)**2 for e in value_list]
+        import math
+        std = math.sqrt(sum(temp)) / len(value_list)
+        
+        print(f"mean: {mean}, total: {total}, std: {std}")
+    def program_3(self):
+        print("***[프로그램 3]***")        
+        print('몇 개의 인수를 전달할지 미리 알 수 없을 때 매개 변수에 **를 붙인다.')
+        print('내부적으로 딕셔너리로 처리한다. key-value')
+        print('예시: def calcPrism(**kwargs): 일 때 메서드 내에선 kwargs.get(\'width\', 0.0) 과 같이 사용한다.')
+    
     def get_program_count(self):
         return len(self.programs)
         
