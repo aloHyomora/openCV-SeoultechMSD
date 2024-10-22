@@ -55,7 +55,7 @@ class ExampleClass:
                     else:
                         print(f'Error: program_{num} 메서드가 정의되지 않았습니다.')
                 else:
-                    print(f"유효하지 않은 인덱스 범위입니다: {index}")                 
+                    print(f"유효하지 않은 인덱스 범위입니다: {num}")                 
             except:
                 print(f"유효한 문자열 형식 program_[index], 당신이 입력한 값: {methodName}")
         else:
