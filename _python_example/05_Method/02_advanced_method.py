@@ -2,15 +2,21 @@
 class ExampleClass:
     def __init__(self):
         self.programs = [
-            "프로그램 1: [문자열에서 문자와 숫자의 수 세기]",
+            "프로그램 1: [수식 입력, 출력]",
             "프로그램 2: [대문자, 소문자의 수 세기]",
             "프로그램 3: [두 리스트 결합]",
             "프로그램 4: [3차원 벡터 합치기]",                     
         ]            
     def program_1(self):
         print("***[프로그램 1]***")
-                
         
+        while True:
+            eq=input("Eq:")
+            if eq=='exit':
+                break
+            process(parseEquation(eq))
+
+    
     def program_2(self):
         print("***[프로그램 2]***")
         
@@ -57,6 +63,28 @@ class ExampleClass:
                                 
 
 example = ExampleClass()
+
+def add(a,b):
+        return a+b
+def sub(a,b):
+        return a-b
+def mul(a,b):
+        return a*b
+def div(a,b):
+        return a/b
+def pow(a,b):
+        return a**b
+def parseEquation(eq):
+        pos = 0
+        for i, c in enumerate(eq):
+            if c in ['+','-','*','/','^']:
+                pos, op = i,c
+                break
+        return float(eq[:pos].strip()),float(eq[pos+1:].strip()),op
+def process(tup):
+        res = funs[tup[2]](tup[0],tup[1])
+        print(f'{tup[0]} {tup[2]} {tup[1]} = {res}')
+funs ={'+':add, '-':sub, '*':mul, '/':div, '^':pow}
 
 while True:
     
