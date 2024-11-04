@@ -1,5 +1,5 @@
 import numpy as np
-
+import random
 class ExampleClass:
     def __init__(self):
         self.programs = [
@@ -7,7 +7,7 @@ class ExampleClass:
             "프로그램 2: [배열 만들기]",
             "프로그램 3: [조건에 맞는 원소]",
             "프로그램 4: [1차원 배열로 만들기]",
-            "프로그램 5: [디저트에 대한 영양 성분 데이터를 표로 만들기]",
+            "프로그램 5: [배열 섞기]",
             "프로그램 6: [dic 데이터 함축]",
             "프로그램 7: [dic 형식 변경]"            
         ]            
@@ -74,6 +74,37 @@ class ExampleClass:
     def program_5(self):
         print("***[프로그램 5]***")     
 
+        # 1. 1에서 100까지의 숫자를 가진 10x10 배열 생성
+        arr = np.array(range(1,101)).reshape((10,10))
+        print(arr)
+        
+        # 2. 배열을 수직으로 5등분하여 리스트에 저장 (각 조각은 2x10 배열)
+        vert_5 = [v for v in np.vsplit(arr,5)] # arr을 수직 5등분한 배열 5개의 리스트
+        print(vert_5)
+        
+        # 3. 2x2 크기의 배열을 저장할 리스트 생성
+        list_2x2 = []
+        
+        # 4. 각 수직으로 나눈 부분을 수평으로 5등분하여 2x2 배열로 분할
+        for v5 in vert_5:
+            list_2x2 += [h for h in np.hsplit(v5, 5)]   
+        print(list_2x2)         
+        
+        # 5. 2x2 배열을 무작위로 섞음
+        random.shuffle(list_2x2)
+        
+        # 6. 섞인 2x2 배열을 수평으로 결합하여 10x2 크기의 배열 생성
+        list_h = []
+        for n in range(0,25, 5):
+            print(list_2x2[n:n+5])
+            list_h.append(np.hstack(list_2x2[n:n+5]))
+            
+        # 7. 10x2 배열을 수직으로 결합하여 10x10 배열 생성
+        b = np.vstack(list_h)
+        
+        # 8. 원래 배열과 섞인 배열 출력
+        print(arr)
+        print(b)
         
     def program_6(self):
         print("***[프로그램 6]***") 
