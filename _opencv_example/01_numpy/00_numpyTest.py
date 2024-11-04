@@ -43,3 +43,7 @@ arr7 = np.array([[5,6],[7,8]])
 
 multipliedValue = np.dot(arr6,arr7)
 print(multipliedValue)
+
+# 조건 만족 인덱스 반환
+arr8 = np.array([1,2,3,4,5])
+print(np.where(arr8 > 3))
