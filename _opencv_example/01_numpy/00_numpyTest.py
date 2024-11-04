@@ -11,9 +11,16 @@ A = np.arange(1,10).reshape(3,3)
 B = np.eye(3,3,1)
 print(A)
 print(B)
-print()
+print('==== np.hstack, vstack ====')
 print(f'hstack A,B=\n {np.hstack((A,B))}')
 print(f'vstack A,B=\n {np.vstack((A,B))}')
+
+print('==== np.concatenate (Axis 방향으로 붙이기)====')
+print(np.concatenate((A,B),axis=0))
+print(np.concatenate((A,B),axis=1))
+
+print('==== np.block ====')
+print(np.block([A,B]))
 
 # 배열 n개 배열로 나누기
 arr2= np.array([[1,2,3,4,5,6,7,8]])
@@ -47,3 +54,4 @@ print(multipliedValue)
 # 조건 만족 인덱스 반환
 arr8 = np.array([1,2,3,4,5])
 print(np.where(arr8 > 3))
+print(np.where(arr8 > 3, 1, 0)) #np.where(조건, 참일 때 값, 거짓일 때 값)
