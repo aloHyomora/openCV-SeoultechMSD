@@ -109,7 +109,18 @@ class ExampleClass:
     def program_6(self):
         print("***[프로그램 6]***") 
 
-    
+        import cv2
+        import numpy as np
+        M,N=100,200
+        width=20
+        m,n=M//width,N//width
+        black=np.ones((width,width),dtype=np.uint8)*255
+        white=np.zeros((width,width),dtype=np.uint8)
+        img=np.block([[black if (i+j)%2==1 else white for j in range(n) ] for i in range(m)])
+        cv2.imshow("random intensity", img)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        
     def program_7(self):
         print("***[프로그램 7]***")     
 
